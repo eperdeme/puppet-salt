@@ -14,8 +14,8 @@ class salt::api (
   $api_service_ensure   = $::salt::params::api_service_ensure,
   $api_service_manage   = $::salt::params::api_service_manage,
   $api_service_enable   = $::salt::params::api_service_enable,
-  $master_config        = $::salt::params::master_config,
-  $master_config_manage = $::salt::params::master_config_manage,
+  $api_config           = $::salt::params::api_config,
+  $master_config_manage    = $::salt::params::master_config_manage,
 ) inherits salt::params {
 
   include 'salt::api::install'

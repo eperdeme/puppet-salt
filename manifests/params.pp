@@ -13,8 +13,9 @@ class salt::params {
       $minion_service_enable = true
 
       $master_config_manage = true
-      $master_config_basedir = '/etc/salt/master.d'
-      $master_config = "$master_config_basedir/master.conf"
+      $master_config_basedir = '/etc/salt'
+      $master_config_incdir = "$master_config_basedir/master.d"
+      $master_config = "$master_config_basedir/master"
       $master_config_template = 'salt/master.erb'
       $master_package_name = 'salt-master'
       $master_package_ensure = 'present'
@@ -24,7 +25,7 @@ class salt::params {
       $master_service_enable = true
 
       $api_config_manage = true
-      $api_config = "$master_config_basedir/api.conf"
+      $api_config = "$master_config_incdir/api.conf"
       $api_config_template = 'salt/api.erb'
       $api_enable_cherrypy = false
       $api_enable_tornado = false

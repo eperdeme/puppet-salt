@@ -71,5 +71,13 @@ inherits salt::master {
     replace => $master_config_manage,
   }
 
+  file { $master_config_incdir:
+	ensure => directory,
+	owner  => 0,
+	group  => 0,
+    mode    => '0664',
+}
+
+
   # todo template the yaml parts in config file
 }
