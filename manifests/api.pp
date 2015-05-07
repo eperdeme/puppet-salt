@@ -15,6 +15,7 @@ class salt::api (
   $api_service_manage   = $::salt::params::api_service_manage,
   $api_service_enable   = $::salt::params::api_service_enable,
   $api_config           = $::salt::params::api_config,
+  $api_pki_dir          = $::salt::params::api_pki_dir,
   $api_cherrypy_ssl_crt = $::salt::params::api_cherrypy_ssl_crt,
   $api_cherrypy_ssl_key = $::salt::params::api_cherrypy_ssl_key,
   $master_config_manage = $::salt::params::master_config_manage,) inherits salt::params {

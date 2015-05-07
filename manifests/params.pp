@@ -298,11 +298,12 @@ class salt::params {
   ###############################################
   # api defaults
   ###############################################
+  $api_pki_dir = '/etc/salt/pki/api'
   $api_cherrypy_port = 8000
   $api_cherrypy_host = '0.0.0.0'
   $api_cherrypy_debug = false
-  $api_cherrypy_ssl_crt = '/etc/pki/api/certs/server.crt'
-  $api_cherrypy_ssl_key = '/etc/pki/api/certs/server.key'
+  $api_cherrypy_ssl_crt = "$api_pki_dir/server.crt"
+  $api_cherrypy_ssl_key = "$api_pki_dir/server.key"
   $api_cherrypy_disable_ssl = false
   $api_cherrypy_webhook_disable_auth = false
   $api_cherrypy_webhook_url = '/hook'
