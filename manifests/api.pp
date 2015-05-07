@@ -15,13 +15,12 @@ class salt::api (
   $api_service_manage   = $::salt::params::api_service_manage,
   $api_service_enable   = $::salt::params::api_service_enable,
   $api_config           = $::salt::params::api_config,
-  $master_config_manage    = $::salt::params::master_config_manage,
-) inherits salt::params {
-
+  $api_cherrypy_ssl_crt = $::salt::params::api_cherrypy_ssl_crt,
+  $api_cherrypy_ssl_key = $::salt::params::api_cherrypy_ssl_key,
+  $master_config_manage = $::salt::params::master_config_manage,) inherits salt::params {
   include 'salt::api::install'
   include 'salt::api::config'
   include 'salt::api::service'
-
 
   # Anchor this as per #8140 - this ensures that classes won't float off and
   # mess everything up.  You can read about this at:
@@ -30,10 +29,7 @@ class salt::api (
 
   anchor { 'salt::api::end': }
 
-  Anchor['salt::api::begin']
-    -> Class['::salt::api::install']
-      -> Class['::salt::api::config']
-        ~> Class['::salt::api::service']
-          -> Anchor['salt::api::end']
+  Anchor['salt::api::begin'] -> Class['::salt::api::install'] -> Class['::salt::api::config'] ~> Class['::salt::api::service'] ->
+  Anchor['salt::api::end']
 
 }
