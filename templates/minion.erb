@@ -15,6 +15,8 @@
 # resolved, then the minion will fail to start.
 master: <%= @minion_master %>
 
+verify_master_pubkey_sign: <%= @minion_verify_master_pubkey_sign %>
+
 # If multiple masters are specified in the 'master' setting, the default behavior
 # is to always try to connect to them in the order they are listed. If random_master is
 # set to True, the order will be randomized instead. This can be helpful in distributing
